@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* 스타일을 추가하여 클릭 가능한 텍스트를 표시합니다. */
+    .clickable-text {
+      cursor: pointer;
+      text-decoration: underline;
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <!-- 클릭 가능한 텍스트를 추가합니다. -->
+  <p class="clickable-text" id="clickableText">텍스트를 클릭하세요</p>
+  
+  <!-- 포커싱을 받을 input 요소를 추가합니다. -->
+  <input type="text" id="focusInput" placeholder="이곳을 클릭하세요">
+  
+  <script>
+    // 클릭 가능한 텍스트 요소를 가져옵니다.
+    const clickableText = document.getElementById("clickableText");
+    
+    // 포커싱을 받을 input 요소를 가져옵니다.
+    const focusInput = document.getElementById("focusInput");
+    
+    // 클릭 가능한 텍스트를 클릭할 때 input 요소에 포커싱을 설정합니다.
+    clickableText.addEventListener("click", function() {
+      focusInput.focus();
+    });
+  </script>
+</body>
+</html>
