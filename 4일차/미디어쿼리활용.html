@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container{
+      border: 1px solid black;
+      height: 100px;
+    }
+    @media screen and (max-width: 200px) and (min-width: 150px){
+      .hello{
+        color: red;
+      }
+      .container{
+        width: 60px;
+        margin: 0 auto;
+      }
+
+    }
+    @media screen and (max-width: 250px) and (min-width: 201px){
+      .hello{
+        color: orange;
+      }
+      .container{
+        width: 130px;
+        margin: 0 auto;
+      }
+
+    }
+    @media screen and (max-width: 300px) and (min-width: 251px){
+      .hello{
+        color: yellow;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+  <h1 class="hello" style="font-size: 100px;">Hello</h1>
+  <div class="container"></div>
+
+</body>
+</html>

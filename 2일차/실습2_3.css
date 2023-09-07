@@ -16,3 +16,4 @@
 .row:nth-child(even) .col:nth-child(odd) {
   background-color: black;
 }
+
