@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        {% if catch %}
+            <p>catch : {{catch}} 을/를 받음!</p>
+        {% else %}
+            <p>catch : 아무것도 받지 못함</p>
+        {% endif %}
+
+        <form action="{% url 'throw_catch:second' %}" method="GET">
+            <label for="throw">throw : </label>
+            <input type="text" name = 'throw', id ='throw'>
+            <input type="submit" value="휙">
+        </form>
+        
+    </div>
+</body>
+</html>
