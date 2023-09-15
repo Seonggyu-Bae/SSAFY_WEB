@@ -6,8 +6,13 @@
   <title>Document</title>
 </head>
 <body>
-  <p>catch! I catch {{catch}}!</p>
-  <form action="/throw_loops/second/" method="GET">
+  {% if catch == None %}
+    <p>catch! I catch Nothing!</p>
+  {% else %}
+    <p>catch! I catch {{catch}}!</p>
+  {% endif %}
+  
+  <form action="/second/" method="GET">
 		<label for="message">throw:</label>
     <input type="text" name="message" id="message">
     <input type="submit">
