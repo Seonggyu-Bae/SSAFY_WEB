@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+  <div>
+    <h1>여기가 throw</h1>
+
+    {% comment %} 사용자가 입력할 수 있는 요소 및 서버로 전달 : form {% endcomment %}
+    <!--action에 보낼 주소를 쓰면된다.
+         urls 에 name 을 넣는다.-->
+    <form action="{% url "articles:catch" %}" method= "GET"> <!--Do not Reapeat Yourself-->
+      <!--
+        name : 데이터를 서버로 전송할때 key-value 형태로 전달됨
+              그 때 key 역할을 하는것이 name
+      -->
+      <input type="text" name="name" >
+      <input type="submit" value="던져던져!">
+  
+    </form>
+  </div>
+ 
+
+
+{% endblock content %}
