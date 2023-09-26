@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div>
+    Hi
+
+    {% for article in articles  %}
+      <div>
+        <h1>제목 : {{article.title}} </h1>
+        <p>내용 : {{article.content}}</p>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock content %}
+

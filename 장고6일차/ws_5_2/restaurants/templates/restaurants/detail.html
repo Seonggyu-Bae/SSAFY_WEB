@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>맛집 상세 정보</h1>
+
+<div>식당 번호 : {{info.pk}}</div>
+<p></p>
+<div>식당 이름 : {{info.name}}</div>
+<p></p>
+<div>식당 설명 : {{info.description}}</div>
+<p></p>
+<div>식당 위치 : {{info.address}}</div>
+<p></p>
+<div>전화 번호 : {{info.phone_number}}</div>
+<hr>
+<a href="{% url "restaurants:edit" info.pk %}">[UPDATE]</a>
+
+<hr>
+<a href="{% url "restaurants:index" %}">[BACK]</a>
+
+{% endblock content %}
+

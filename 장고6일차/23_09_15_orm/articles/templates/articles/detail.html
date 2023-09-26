@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+  <h1>Detail Page</h1>
+  <!-- 게시글의 상세내용을 출력-->
+  <p>
+    제목 : {{ article.title }}
+  </p>
+  <p>
+    내용 : <br>
+    {{article.content}}
+  </p>
+  <hr>
+  <a href="{% url "articles:index" %}">메인페이지로</a>
+</div>
+{% endblock content %}

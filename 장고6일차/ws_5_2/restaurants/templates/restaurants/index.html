@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>맛집 리스트</h1>
+<p></p>
+<a href="{% url "restaurants:new" %}">[CREATE]</a>
+{% for restaurant in info  %}
+  <ul>
+    <li> 식당의 이름 : {{ restaurant.name }}
+      <ul>
+        <li>
+          주소 : {{ restaurant.address }}
+        </li>
+      </ul>
+      
+    </li>
+  </ul>
+  <a href="{% url "restaurants:detail" restaurant.pk %}">[Detail]</a>
+  <hr>
+{% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div>
+  <h1>INDEX 입니다.</h1>
+  <a href="{% url "articles:new" %}">새 글 쓰기</a>
+  <!-- 게시글 목록을 출력 -->
+  {% comment %} {{ articles }} {% endcomment %}
+  {% for article in articles %}
+  <p>
+    {% comment %} {{ article }} {% endcomment %}
+    <p>제목 : <a href="">{{ article.title }}</a></p>
+    <p>내용 : {{ article.content }}</p>
+    <p>작성시간 : {{ article.create_at}}</p>
+    <form action="{% url "articles:delete" article.pk %}" method="POST">
+      {% csrf_token %}
+      <input type="submit" value="삭제">
+    </form>
+    <hr>
+  </p>  
+  {% endfor %}
+</div>
+{% endblock content %}
