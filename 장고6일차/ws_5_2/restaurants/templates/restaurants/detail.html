@@ -14,7 +14,11 @@
 <div>전화 번호 : {{info.phone_number}}</div>
 <hr>
 <a href="{% url "restaurants:edit" info.pk %}">[UPDATE]</a>
-
+<p></p>
+<form action="{% url "restaurants:delete" info.pk %}" method = "POST">
+    {% csrf_token %}
+    <input type="submit" value="DELETE">
+</form>
 <hr>
 <a href="{% url "restaurants:index" %}">[BACK]</a>
 

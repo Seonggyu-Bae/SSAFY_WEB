@@ -43,8 +43,19 @@ def edit(request,pk):
     return render(request,'restaurants/edit.html',context)
 
 def update(request,pk):
+    name = request.POST.get('name')
+    description = request.POST.get('description')
+    address = request.POST.get('address')
+    phone_number = request.POST.get('phone_number')
+    restaurant = Restaurant.objects.get(pk=pk)
+    restaurant.name = name
+    restaurant.description = description
+    restaurant.address = address
+    restaurant.phone_number = phone_number
+    restaurant.save()
+    return redirect('restaurants:index')
+
+def delete(request,pk):
     info = Restaurant.objects.get(pk=pk)
-    context = {
-        'info' : info,
-    }
-    #return render(request,'restaurants/update.html',context)
+    info.delete()
+    return redirect('restaurants:index')
