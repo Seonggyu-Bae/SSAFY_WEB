@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{article.pk}}번 째 글</h1>
+<div>
+  제목 : {{article.title}}
+</div>
+<div>
+  내용 : {{article.content}}
+</div>
+<div>
+  작성일자 : {{article.created_at}}
+</div>
+<div>
+  수정일자 : {{article.updated_at}}
+</div>
+
+<a href="{% url "selfs:edit" article.pk %}"><input type="submit" value="수정하기"></a>
+
+{% endblock content %}
+

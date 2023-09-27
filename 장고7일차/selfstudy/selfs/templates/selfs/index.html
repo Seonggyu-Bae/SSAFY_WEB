@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>WELCOME to Main(INDEX) PAGE</h1>
+<a href="{% url "selfs:create" %}">새 글 쓰기</a>
+<div>
+  {% for article in  articles %}
+    {{article.title}}
+    {{article.content}}
+  
+  
+  {% endfor %}
+
+</div>
+
+{% endblock content %}
+
+
+
