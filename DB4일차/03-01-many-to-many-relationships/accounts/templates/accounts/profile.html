@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>{{ person.username }}님의 프로필</h1>
+  <p>이름 : {{person.username}}</p>
+  <hr>
+  <p>팔로잉:
+    {% for following  in person.followers.all  %}
+      <p>{{following.username}}</p>
+    {% endfor %}
+  </p>
+  <hr>
+  <p>팔로워: 
+    {% for follower in person.followers.all  %}
+      {{ follower.username }}
+    {% endfor %}
+  </p>
+  <hr>
+  <div>
+    <div>
+      {% if request.user != person %}
+        <div>
+          <form action="{% url "accounts:follow" person.pk %}" method="POST">
+            {% csrf_token %}
+            {% if request.user in person.follower.all %}
+              <input type="submit" value="Unfollow">
+            {% else %}
+              <input type="submit" value="Follow">
+            {% endif %}
+          </form>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  <hr>
+  <p>
+    작성한 글:
+    {% for article in person.article_set.all  %}
+      <a href="{% url "articles:detail" article.pk %}">{{article.title}}</a>
+    {% endfor %}
+    </p>
+
+    
+</body>
+</html>
