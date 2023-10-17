@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load bootstrap5 %}
+
+{% block content %}
+<h1>{{ person.username }}님의 프로필</h1>
+{% with follower_num=person.followers.all|length follow_num=person.followings.all|length  %}
+    <p>팔로잉: {{ follow_num }} / 팔로워 : {{ follower_num }}</p>
+{% endwith %}
+{% if request.user != person %}
+    <div>
+        <form action="{% url "accounts:follow" person.pk %}" method="POST">
+            {% csrf_token %}
+            {% if request.user in person.followers.all %}
+                <input class="btn btn-outline-primary" type="submit" value="팔로우 취소">
+            {% else %}
+            <input class="btn btn-outline-primary" type="submit" value="팔로우">
+            {% endif %}
+        </form>
+    </div>
+{% endif %}
+<hr>
+
+<h3>{{ person.username }}'s 게시글</h3>
+{% for movie in person.movie_set.all  %}
+    <div>{{movie.title}}</div>
+{% endfor %}
+
+
+<hr>
+<h3>{{ person.username }}'s 댓글</h3>
+{% for comment in person.comment_set.all  %}
+    <div> {{ comment.content }}</div>
+{% endfor %}
+
+<hr>
+{% endblock content %}
+
+
+
