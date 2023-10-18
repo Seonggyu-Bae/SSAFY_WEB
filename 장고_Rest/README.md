@@ -110,4 +110,17 @@
 
 ### 2. DRF
 
+- Django REST framework
+  - Django에서 Restful API 서버를 쉽게 구축할 수 있도록 도와주는 오픈소스 라이브러리
+
+- Serialization (직렬화)
+  - 여러 시스템에서 활용하기 위해 데이터 구조나 객체 상태를 나중에 재구성할 수 있는 포멧으로 변환하는 과정
+
+![Alt text](image-7.png)
+![Alt text](image-8.png)
+
+
+
 ### 3. DRF with Single Model
+
+- Postman
