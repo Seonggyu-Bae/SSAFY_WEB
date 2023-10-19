@@ -214,7 +214,7 @@
 ### OpenAPI Specification (OAS)
 - RESTful API를 설명하고 시각화하는 표준화된 방법
 - API에 대한 세부사항을 기술할 수 있는 공식 표준
-- ![Alt text](image-2.png)
+  ![Alt text](image-2.png)
 - 참조
   - https://drf-spectacular.readthedocs.io/en/latest/
 
