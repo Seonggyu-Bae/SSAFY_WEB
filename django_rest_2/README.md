@@ -6,30 +6,30 @@
 
 
 ### GET
-- GET : LIST
-  - 댓글 목록 조회를 위한 CommentSerializer정의
+#### GET : LIST
+- 댓글 목록 조회를 위한 CommentSerializer정의
   
   ```python
   # articles/serializers.py
   from rest_framework import serializers
   from .models import Article, Comment
   class CommentSerializer(serializers.ModelSerializer):
-  
+
       class ArticleTitleSerializer(serializers.ModelSerializer):
           class Meta:
               model = Article
               fields = ('id','title',)
-  
+
       # override (댓글 조회 시 게시글 번호만 제공해주는 것이 아닌 게시글 제목까지 제공해보자)
-  
+
       article = ArticleTitleSerializer(read_only=True)
-  
+
       class Meta:
           model = Comment
           fields = '__all__'
           # read_only_fields = ('article',)
   ```
-  - url 작성
+- url 작성
   
   ```python
   url_patterns = [
@@ -37,8 +37,8 @@
   ]
   ```
 
-  - view 함수 작성
-  - 
+- view 함수 작성
+  
   ```python
   # articles/views.py
   from .models import Article, Comment
@@ -54,13 +54,14 @@
       return Response(data = serializer.data)
   
   ```
-  확인
+  ####  결과확인
+
   ![Alt text](image-1.png)
 
+---
 
-
-- GET : Detail
-  - 단일 댓글 조회를 위한 url 및 view 함수 작성
+#### GET : Detail
+- 단일 댓글 조회를 위한 url 및 view 함수 작성
   ```python
     #articles/urls.py
     from django.urls import path
@@ -82,6 +83,8 @@
             serializer = CommentSerializer(instance=comment)
             return Response(data = serializer.data)
   ```
+
+---
 
 ### POST
 
@@ -169,8 +172,9 @@
             fields = '__all__'
             # read_only_fields = ('article',)
     ```
-
-
+---
+---
+---
 ## 2. 역참조 데이터 구성
 
 ### Article -> Comment 간 역참조 관계를 활용한 JSON 데이터 재구성
