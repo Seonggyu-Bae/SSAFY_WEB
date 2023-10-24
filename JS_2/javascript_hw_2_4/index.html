@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1. 변수 num이 while문안에서 재 할당 될 수 있도록 변수 선언 방식 수정
+    let num = 5
+    // 2. while 문의 조건이 'num이 0 이상인 동안'이 되도록 수정
+    while (num >= 0){
+      // 3. 올바르게 출력되도록 수정
+      console.log(`카운트 다운 : ${num}`)
+      num -= 1
+    }
+
+    // 4 순서대로 출력되도록 수정
+    const students = ['가', '나', '다', '라']
+    for (student of students){ 
+      console.log(student)
+    }
+    
+    // 5. 역순으로 출력하도록 수정
+    for (let i = 3; i >= 0; i--) {
+      console.log(students[i])
+    }
+  </script>
+</body>
+
+</html>

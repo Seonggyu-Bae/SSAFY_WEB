@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1. 변수 name의 값에 새로운 값을 재 할당 할 수 있도록 변수 선언 방식 변경
+    let name = '홍길동'
+    // const name = '홍길동'
+    const age = 30
+    name = '김철수'
+
+    console.log(name)
+    // 2. 조건문이 name이 '김철수', age가 30 일때 작동하도록 수정
+    // 3. if 문이 정상 작동하도록  수정
+    // 4. if 문의 조건이 true 라면 string interpolation을 활용하여 김철수의 나이는 30살 입니다가 출력되도록 수정
+    if (name == '김철수' && age == 30){
+      console.log(`${name}의 나이는 ${age}살 입니다.`)
+    }
+    let new_age = age 
+    new_age += 1
+    console.log(`1년이 지나 이제 ${name}는/은 ${new_age}살이 되었습니다.`)
+    
+  </script>
+</body>
+</html>
