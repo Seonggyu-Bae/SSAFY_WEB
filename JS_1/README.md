@@ -28,9 +28,9 @@
 - 웹페이지의 동적인 기능을 구현
 
 ### JavaScript 실행 환경 종류
-![Alt text](image.png)
-![Alt text](image-1.png)
-![Alt text](image-2.png)
+![Alt text](images/image.png)
+![Alt text](images/image-1.png)
+![Alt text](images/image-2.png)
 
 
 
@@ -42,12 +42,12 @@
 #### DOM특징
 - DOM에서 모든 요소, 속성, 텍스트는 하나의 객체
 - 모두 document 객체의 자식으로 구성됨
-![Alt text](image-4.png)
+![Alt text](images/image-4.png)
 
 #### DOM tree
 - 브라우저는 HTML 문서를 해석하여 DOM tree 라는 객체 트리로 구조화
 - 객체 간 상속 구조가 존재
-![Alt text](image-3.png)
+![Alt text](images/image-3.png)
 
 
 #### 브라우저가 웹페이지를 불러오는 과정
@@ -62,7 +62,7 @@
 - 페이지를 구성하는 모든 객체 요소를 포함
 
 #### 'document' 객체 예시
-![Alt text](image-5.png)
+![Alt text](images/image-5.png)
 
 
 ### DOM 선택

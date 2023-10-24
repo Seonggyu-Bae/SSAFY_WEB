@@ -15,7 +15,7 @@
   - REST라는 설계 디자인 약속을 지켜 구현한 API
 
 
-![Alt text](image.png)
+![Alt text](images/image.png)
 
 - REST에서 자원을 정의하고 주소를 지정하는 방법
 1. 자원의 식별
@@ -38,7 +38,7 @@
   - 웹이서 주어진 리소스의 주소
   - 네트워크 상에 리소스가 어디 있는지를 알려주기 위한 약속 
 
-![Alt text](image-1.png)
+![Alt text](images/image-1.png)
 
 - Schema(or Protocol)
   - 브라우저가 리소스를 요청하는데 사용해야 하는 규약
@@ -93,7 +93,7 @@
 
 - HTTP response status codes
   - 특정 HTTP 요청이 성공적으로 완료 되었는지 여부를 나타냄
-  - ![Alt text](image-2.png)
+  - ![Alt text](images/image-2.png)
 
 
 #### 자원의 표현
@@ -102,10 +102,10 @@
 - 하지만 서버가 응답할 수 있는 것은 페이지 뿐만 아니라 다양한 데이터 타입을 응답할 수 있음
 - REST API는 이 중에서도 JSON 타입으로 응답하는 것을 권장
 
-![Alt text](image-3.png)
-![Alt text](image-4.png)
-![Alt text](image-5.png)
-![Alt text](image-6.png)
+![Alt text](images/image-3.png)
+![Alt text](images/image-4.png)
+![Alt text](images/image-5.png)
+![Alt text](images/image-6.png)
 
 
 ### 2. DRF
@@ -116,8 +116,8 @@
 - Serialization (직렬화)
   - 여러 시스템에서 활용하기 위해 데이터 구조나 객체 상태를 나중에 재구성할 수 있는 포멧으로 변환하는 과정
 
-![Alt text](image-7.png)
-![Alt text](image-8.png)
+![Alt text](images/image-7.png)
+![Alt text](images/image-8.png)
 
 
 
