@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // let : 재할당 가능, 재선언 불가능
+    let number = 10
+    // 재 할당 가능
+    number = 20
+    console.log(number)
+
+    // 재 선언 불가능
+    // let number = 30
+
+
+    // const : 재할당,재선언 불가능
+
+    const number1 = 30
+    // number1 = 50
+    // const number1 = 40
+    console.log(number1)
+
+
+    // 블록스코프 예제
+    let x = 1
+    if (x==1) { 
+      let x = 2
+      console.log(x) // 2
+    }
+    console.log(x) // 1 
+
+    // Template literals(템플릿 리터럴) 예제
+    // 파이썬의 fstring과 유사
+    const age = 28
+    const message = `홍길동은 ${age}세 입니다.`
+    console.log(message)
+
+  </script>
+</body>
+
+</html>
