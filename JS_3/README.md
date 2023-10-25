@@ -21,9 +21,13 @@
 ### 함수 정의 2가지 방법
 
 - 선언식 (function declaration)
+<br>
+
 ![Alt text](images/image-1.png)
 
 - 표현식 (function experession)
+<br>
+
 ![Alt text](images/image-2.png)
 
 <br> 
@@ -71,6 +75,8 @@
 ---
 - 매개변수 개수 < 인자 개수
   - 초과 입력한 인자는 사용하지 않음
+<br>
+
 ![Alt text](images/image-8.png)
 
 <br> 
