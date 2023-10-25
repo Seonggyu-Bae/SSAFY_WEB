@@ -21,10 +21,10 @@
 ### 함수 정의 2가지 방법
 
 - 선언식 (function declaration)
-  ![Alt text](images/image-1.png)
+![Alt text](images/image-1.png)
 
 - 표현식 (function experession)
-  ![Alt text](images/image-2.png)
+![Alt text](images/image-2.png)
 
 <br> 
 <br>
@@ -71,7 +71,7 @@
 ---
 - 매개변수 개수 < 인자 개수
   - 초과 입력한 인자는 사용하지 않음
-  ![Alt text](images/image-8.png)
+![Alt text](images/image-8.png)
 
 <br> 
 <br>
@@ -82,9 +82,9 @@
   - 배열이나 객체의 요소를 개별적인 값으로 분리하거나 다른 배열이나 객체의 요소를 현재 배열이나 객체에 추가하는 등
 1. 함수와의 사용
   1. 함수 호출 시 인자 확장
-    ![Alt text](images/image-9.png)
+  ![Alt text](images/image-9.png)
   2. 나머지 매개변수 (압축)
-    ![Alt text](images/image-10.png)
+  ![Alt text](images/image-10.png)
 2. 객체와의 사용 (객체 파트에서 진행)
 3. 배열과의 활용 (배열 파트에서 진행)
 
@@ -129,7 +129,7 @@
 - 중괄호 안에는 key : value 쌍으로 구성된 속성(property)를 여러 개 작성 가능
 - key는 문자형만 허용
 - value는 모든 자료형 허용
-  ![Alt text](images/image-14.png)
+![Alt text](images/image-14.png)
 
 <br>
 
@@ -157,7 +157,7 @@
 #### Method 사용 예시
 - object.method() 방식으로 호출
 - 메서드는 객체를 '행동' 할 수 있게 함
-  ![Alt text](images/image-18.png)
+![Alt text](images/image-18.png)
 
 <br> 
 <br>
@@ -172,11 +172,11 @@
 
 1. 단순 호출시 this
 - 가리키는 대상 => 전역 객체
-  ![Alt text](images/image-21.png)
+![Alt text](images/image-21.png)
 
 2. 메서드 호출 시 this
 - 가리키는 대상 => 메서드를 호출한 객체
-  ![Alt text](images/image-22.png)
+![Alt text](images/image-22.png)
 
 3. 중첩된 함수에서의 this 문제점과 해결책
   ![Alt text](images/image-23.png)
@@ -209,7 +209,7 @@
 - 배열 또는 객체를 분해하여 속성을 변수에 쉽게 할달할 수 있는 문법
   ![Alt text](images/image-27.png)
 - 활용
-  ![Alt text](images/image-29.png)
+![Alt text](images/image-29.png)
 
 5. Object with '전개 구문'
 - 객체 복사
@@ -343,9 +343,9 @@
   ![Alt text](images/image-45.png)
 
 - forEach 구조
-  ![Alt text](images/image-46.png)
+![Alt text](images/image-46.png)
 - forEach 활용
-  ![Alt text](images/image-47.png)
+![Alt text](images/image-47.png)
 
 <br> 
 <br>
@@ -360,8 +360,8 @@
   ![Alt text](images/image-49.png)
 
 - map 활용
-  ![Alt text](images/image-50.png)
-  ![Alt text](images/image-51.png)
+![Alt text](images/image-50.png)
+![Alt text](images/image-51.png)
 
 
 
