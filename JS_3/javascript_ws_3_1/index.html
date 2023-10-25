@@ -30,11 +30,9 @@
       - 함수 표현식으로 작성한다.
     */
     function totalOfArrays(array){
-      sum = 0 
-      array.forEach(function(item){
-        sum += item
-      })
-      return sum
+      initialValue = 0
+      const sumWithInitial = array.reduce((accumulator, currentValue) => accumulator + currentValue, initialValue)
+      return sumWithInitial
     }
     console.log(totalOfArrays([1, 2, 3, 4, 5])) // 15
 
