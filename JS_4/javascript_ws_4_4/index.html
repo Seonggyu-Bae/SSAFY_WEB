@@ -35,7 +35,9 @@
     if (todo.trim()){
       // li element를 생성 후 input element의 value 값을 데이터로 저장한다
       const liTag = document.createElement('li')
-      liTag.textContent = todo
+      const span = document.createElement('span')
+      span.textContent = todo
+      liTag.appendChild(span)
 
       // ul 태그의 자식 태그로 위에서 생성한 li element를 넣는다.
       ulTag.appendChild(liTag)
@@ -45,6 +47,9 @@
       deletebtn.classList.add('delete')
       deletebtn.innerText = 'X'
       liTag.appendChild(deletebtn)
+      span.addEventListener('click',function(event){
+        event.target.classList.toggle('done')
+      } )
     }
     // 입력이 빈 값이면 팝업 출력
     else{
@@ -61,11 +66,6 @@
       console.log(event)
       if(event.target.textContent == 'X' ){
         event.target.parentNode.remove()
-      }
-      else if (event.target.localName == 'li'){
-        console.log(event)
-        console.log(event.target.innerHTML)
-        event.target.classList.toggle('done')
       }
     }
 
