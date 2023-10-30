@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>고양이 사진 가져오기</button>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    const URL = 'https://api.thecatapi.com/v1/images/search/'
+    const btn = document.querySelector('button')
+
+    const getCats = function(){
+      axios({
+      method : 'get',
+      url: URL,
+    })
+      .then((response) =>{
+        imgUrl = (response.data[0].url)
+        return imgUrl
+      })
+      .then((imgData) => {
+        const imgElem = document.createElement('img')
+        imgElem.setAttribute('src', imgData)
+        imgElem.setAttribute('width', 800)
+        imgElem.setAttribute('height', 600)
+        document.body.removeChild(btn)
+        document.body.appendChild(btn)
+        document.body.appendChild(imgElem)
+        window.scrollBy(0,800)
+      })
+      .catch((error) =>{
+        console.log(error)
+        console.log('실패했다옹')
+      })
+      console.log('meow')
+    }
+
+    btn.addEventListener('click', getCats)
+  </script>
+</body>
+
+</html>
