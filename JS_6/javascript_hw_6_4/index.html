@@ -1,0 +1,31 @@
+<!--
+  AJAX 요청을 통해 좋아요 정보를 수정하는 코드의 일부분이다.
+script 부분을 사용할 수 있도록 (a)에 들어갈 알맞은 form 태그 작성 
+-->
+
+{% block content %}
+  {% for article in articles %}
+    <!-- __(a)__   -->
+    <form class="like-form" data-article-id = "{{ article.pk }}">
+      {% csrf_token %}
+      {% if request.user in article.like_users.all %}
+        <input type="submit" value="좋아요 취소" id = "like-{{article.pk}}">
+      {% else %}
+        <input type="submit" value="좋아요" id="like-{{ article.pk }}">
+      {% endif %}
+    </form>
+  {% endfor %}
+{% endblock %}
+
+{% block script %}
+const forms = document.querySelectorAll('.like-form')
+const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+forms.forEach(function (form) {
+  form.addEventListener('submit', function (event) {
+    event.preventDefault()
+    const articleId = event.target.dataset.articleId
+		//...//
+    })
+})
+
+{% endblock %}
