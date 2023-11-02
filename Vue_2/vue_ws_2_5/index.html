@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .is-selected {
+      background-color: #eee;
+    }
+
+    .is-required {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>다양한 전시 정보</h1>
+    <hr>
+    <ul>
+      <li v-bind:id="exhibitInfo.enTitle" :class="{ 'is-selected' : exhibitInfo.isSelected, }" >
+        <label for="selected">전시 선택</label>
+        <input type="checkbox" name="selected" id="selected" v-model="exhibitInfo.isSelected">
+
+        <h3 v-text="exhibitInfo.koTitle"></h3>
+        <p v-html ="exhibitInfo.description"></p>
+        <hr>
+        <p v-text="exhibitInfo.artMuseum"></p>
+        <a v-bind:href="exhibitInfo.museumURL">전시장 바로가기</a>
+        <hr>
+
+        <!--  3. 인원 증/감 버튼에 disabled 속성을 부여하시오.
+              - 단, 인원수 기준에 따라 true/false가 할당되도록 한다.
+              - 인원수 기준은 최소 0명이상 최대 10명 이하이다. -->
+        <p>입장권 구매하기</p>
+        <div>
+          <span v-text="`인원 수 : ${exhibitInfo.totalNum} 명`" :class="{ 'is-required' : isUnderZero, }"></span>
+          <button @click="[decreaseNum, checkPeopleNum, caculation]" :disabled="exhibitInfo.totalNum===0">-</button>
+          <button @click="[increaseNum,checkPeopleNum, caculation]"  :disabled="exhibitInfo.totalNum===10">+</button>
+        </div>
+        <p v-text="`총 입장료 : ${totalPrice} 원`"></p>
+        <hr>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Vue3 CDN을 사용한다.-->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const {createApp, ref} = Vue
+
+    art = createApp({
+      setup(){
+
+        const exhibitInfo = ref({
+          koTitle : '모네 인사이드',
+          enTitle : 'monet-inside',
+          artMuseum : '예술의 전당',
+          museumURL : 'https://www.sac.or.kr/',
+          description : '<p> &lt;모네 인사이드&gt; 는 빛의 화가 <b>클로드 모네</b>가 남긴 소중한 명작들을 현대적 감각으로 재해석해 음악과 함께 감상하는 미디어아트 전시입니다. </p>',
+          isSelected : false,
+          price : 1000,
+          totalNum : 0,
+      })
+        // const koTitle = ref('모네 인사이드')
+        // const enTitle = ref('monet-inside')
+        // const artMuseum = ref('예술의 전당')
+        // const museumURL = ref('https://www.sac.or.kr/')
+        // const description = ref('<p> &lt;모네 인사이드&gt; 는 빛의 화가 <b>클로드 모네</b>가 남긴 소중한 명작들을 현대적 감각으로 재해석해 음악과 함께 감상하는 미디어아트 전시입니다. </p>')
+        
+        // const count = ref(0)
+        const totalPrice = ref(0)
+
+        const decreaseNum = function(){
+          // 1. 현재 입장 인원의 수가 0명 초과일 때만, 인원 감소 메서드가 실행되도록 코드를 수정하시오.
+          if (exhibitInfo.value.totalNum >= 1){
+            exhibitInfo.value.totalNum--
+          }
+        }
+        const increaseNum = function(event){
+          // 2. 현재 입장 인원의 수가 10명 미만일 때만, 인원 증가 메서드가 실행되도록 코드를 수정하시오.
+          if (exhibitInfo.value.totalNum <10){
+            exhibitInfo.value.totalNum++
+          }
+          
+        }
+        const caculation = function(){
+          totalPrice.value = exhibitInfo.value.totalNum * exhibitInfo.value.price
+        }
+        
+
+        // const isSelected = ref(false)
+
+        const isUnderZero = ref(false)
+        const checkPeopleNum = function(){
+          if (exhibitInfo.value.totalNum >= 0){
+            isUnderZero.value = false
+          }
+          if(exhibitInfo.value.totalNum < 0){
+            isUnderZero.value = true
+          }
+       
+        }
+
+
+        return{
+          // koTitle,
+          // enTitle,
+          // artMuseum,
+          // museumURL,
+          // description,
+          // count,
+          totalPrice,
+          decreaseNum,
+          increaseNum,
+          caculation,
+          // isSelected,
+          isUnderZero,
+          checkPeopleNum,
+          exhibitInfo,
+        }
+      }
+
+    })
+     // 1. 새로운 app instance를 생성하여 아이디가 app인 container에 mount 하시오.
+    art.mount('#app')
+ 
+    /*
+    
+      3. 인원 증/감 버튼에 disabled 속성을 부여하시오.
+    - 단, 인원수 기준에 따라 true/false가 할당되도록 한다.
+    - 인원수 기준은 최소 0명이상 최대 10명 이하이다.
+    */
+  </script>
+</body>
+</html>

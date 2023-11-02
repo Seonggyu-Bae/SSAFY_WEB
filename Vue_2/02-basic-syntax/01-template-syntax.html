@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- template syntax -->
+    <p>message: {{ msg }}</p>
+    <div v-html="rawHtml"></div>
+    <div v-bind:id="dynamicId"></div>
+    <div> {{ number + 1 }}</div>
+    <div>{{ ok ?'Yes' : 'No' }}</div>
+    <div>{{ msg.split('').reverse().join('') }}</div>
+    <div v-bind:id="`list-${id}`"></div>
+
+    <!-- 작동하지 않는 경우 -->
+
+    <!-- 1. 표현식이 아닌 선언식 -->
+    <!-- {{ const number = 1 }} -->
+
+    <!-- 2. 흐름제어 (삼항 표현식을 사용할것) -->
+    <!-- {{ if (ok) {return message } }} -->
+
+
+    <!-- directive -->
+    <p v-if="seen">v-if의 값이 True 라면 출력됩니다.False 라면 렌더링도 안됨 v-if = "seen" :{{ seen }}</p>
+
+    <!-- href는 HTML a요소의 href 속성 값을 myUrl 값에 바인딩 하도록 하는 v-bind의 인자 -->
+    <a v-bind:href="myUrl">Link</a>
+    <!-- click은 이벤트 수신할 이벤트 이름을 작성하는 v-on의 인자 -->
+    <button v-on:click="doSomething">버튼</button>
+
+    <form v-on:submit.prevent="onSubmit">
+      <input type="submit" value="">
+    </form>
+
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp, ref } = Vue
+
+    const app = createApp({
+      setup() {
+        const msg = 'Hello'
+        const rawHtml = ref('<span style="color:red">This should be red.</span>')
+        const dynamicId = ref('my-id')
+        const number = ref(1)
+        const ok = ref(false)
+        const seen = ref(true)
+        const id = ref(100)
+        const myUrl = 'https://www.google.co.kr/'
+        const doSomething = function () {
+          console.log('button clicked')
+        }
+        const onSubmit = function () {
+          console.log('form submitted')
+        }
+        return {
+          msg,
+          rawHtml,
+          dynamicId,
+          seen,
+          number,
+          ok,
+          id,
+          myUrl,
+          doSomething,
+          onSubmit
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>
