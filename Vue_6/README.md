@@ -17,12 +17,12 @@
 
 
 #### SSR에서의 Routing
-![Alt text](image.png)  
+![Alt text](images/image.png)  
   
 
 
 #### CSR/SPA 에서의 Routing
-![Alt text](image-1.png)  
+![Alt text](images/image-1.png)  
 
 #### 만약 routing이 없다면?
 - 유저가 URL을 통한 페이지의 변화를 감지할 수 없음
@@ -40,23 +40,23 @@
 - Vue 공식 라우터
 
 #### Vue Router 추가
-![Alt text](image-2.png)
-![Alt text](image-3.png)
+![Alt text](images/image-2.png)
+![Alt text](images/image-3.png)
 
 #### Vue 프로젝트 구조 변화
-![Alt text](image-4.png)
+![Alt text](images/image-4.png)
 
 
 #### RouterLink
 - 페이지를 다시 로드하지 않고 URL을 변경하고 URL 생성 및 관련 로직을 처리
 - HTML의 a 태그를 렌더링
-![Alt text](image-5.png)
+![Alt text](images/image-5.png)
 
 
 #### RouterView
 - URL에 해당하는 컴포넌트를 표시
 - 어디에나 배치하여 레이아웃에 맞출 수 있음
-![Alt text](image-6.png)
+![Alt text](images/image-6.png)
 
 #### router/index.js
 - 라우팅에 관련된 정보 및 설정이 작성 되는 곳
@@ -72,7 +72,7 @@
 #### 라우팅 기본
 1. index.js에 라우터 관련 설정 작성(주소, 이름, 컴포넌트)
 2. RouterLink의 'to' 속성으로 index.js 에서 정의한 주소 속성 값(path)을 사용
-![Alt text](image-7.png)
+![Alt text](images/image-7.png)
 
 
 ### Named Routes
@@ -83,7 +83,7 @@
 #### Named Routes 예시
 - name 속성 값에 경로에 대한 이름을 지정
 - 경로에 연결하려면 RouterLink에 v-bind를 사용해 'to' prop 객체로 전달
-![Alt text](image-8.png)
+![Alt text](images/image-8.png)
 
 
 #### Named Routes 장점
@@ -101,10 +101,10 @@
     - 일정한 패턴의 URL 작성을 반복해야함
 
 #### 매개 변수를 사용한 동적 경로 매칭 활용
-![Alt text](image-9.png)
-![Alt text](image-10.png)
-![Alt text](image-11.png)
-![Alt text](image-12.png)
+![Alt text](images/image-9.png)
+![Alt text](images/image-10.png)
+![Alt text](images/image-11.png)
+![Alt text](images/image-12.png)
 
 
 ### Programmatic Navigation
@@ -120,22 +120,22 @@
 - 다른 URL로 이동하는 메서드
 - 새 항목을 history stack에 push하므로 사용자가 브라우저 뒤로 가기 버튼을 클릭하면 이전 URL로 이동할 수 있음
 - RouterLink를 클릭했을 때 내부적으로 호출되는 메서드 이므로 RouterLink를 클릭하느 것은 router.push()를 호출하는 것과 같음
-![Alt text](image-13.png)
+![Alt text](images/image-13.png)
 
 #### router.push 활용
-![Alt text](image-14.png)
-![Alt text](image-15.png)
+![Alt text](images/image-14.png)
+![Alt text](images/image-15.png)
 
 #### router.push 인자 활용 참고
 - https://router.vuejs.org/guide/essentials/navigation.html/
 
-![Alt text](image-16.png)
+![Alt text](images/image-16.png)
 
 
 #### router.replace()
 - push 메서드와 달리 history stack에 새로운 항목을 push 하지 않고 다른 URL로 이동 (=== 이동 전 URL로 뒤로 가기 불가)
 
-![Alt text](image-17.png)
+![Alt text](images/image-17.png)
 
 
 ## 3. Navigation Guard
@@ -165,14 +165,14 @@
 - 다른 URL로 이동하기 직전에 실행되는 함수 (Global Before Guards)
 
 #### router.beforeEach 구조
-![Alt text](image-18.png)
+![Alt text](images/image-18.png)
 - to   : 이동 할 URL 정보가 담긴 Route 객체
 - from : 현재 URL 정보가 담긴 Route 객체
 - 선택적 반환(return) 값
 1. false
-![Alt text](image-19.png)
+![Alt text](images/image-19.png)
 2. Route Location
-![Alt text](image-20.png)
+![Alt text](images/image-20.png)
 
 
 ### Per-route Guard
@@ -181,3 +181,51 @@
 - route에 진입했을때만 실행되는 함수
 - 매개변수, 쿼리 값이 변경될 때는 실행되지 않고 다른 경로에서 탐색할 때만 실행됨
 
+#### router.beforeEnter 구조
+![Alt text](images/image-21.png)
+- routes 객체에서 정의
+- 함수의 to, from, 선택 반환 인자는 beforeEach와 동일함.
+
+
+#### router.beforeEnter 예시
+1. 라우터 가드 beforeEnter 작성
+2. HomeView에서 UserView로 이동 후 각  인자 값 출력 확인하기
+![Alt text](images/image-22.png)
+- to에는 이동할 URL인 user 라우트에 대한 정보가, from에는 현재 URL인 home 라우트에 대한 정보가 들어있음
+- 다른 경로에서 user 라우트를 탐색 했을 때 실행된 것
+![Alt text](images/image-23.png)
+
+![Alt text](images/image-24.png)
+![Alt text](images/image-25.png)
+![Alt text](images/image-26.png)
+
+### In-component Guard
+
+#### 컴포넌트 가드 종류
+- onBeforeRouteLeave
+    - 현재 라우트에서 다른 라우트로 이동하기 전에 실행
+    - 사용자가 현재 페이지를 떠나는 동작에 대한 로직을 처리
+
+- onBeforeRouteUpdate
+    - 이미 렌더링된 컴포넌트가 같은 라우트 내에서 업데이트되기 전에 실행
+    - 라우트 업데이트 시 추가적인 로직을 처리
+
+#### onBeforeRouteLeave 활용
+- 사용자가 UserView를 떠날 시 팝업 창 출력하기
+![Alt text](images/image-28.png)
+![Alt text](images/image-27.png)
+
+#### onBeforeRouteUpdate 활용
+- UserView 페이지에서 다른 id를 가진 User의 UserView 페이지로 이동하기
+![Alt text](images/image-29.png)
+![Alt text](images/image-30.png)
+
+#### 만약 onBeforeRouteUpdate를 사용하지 않았다면
+- onBeforeRouteUpdate에서 userId를 변경하지 않으면 userId는 갱신되지 않음
+![Alt text](images/image-31.png)
+
+
+### 참고
+
+#### Lazy Loading Routes
+![Alt text](images/image-32.png)
