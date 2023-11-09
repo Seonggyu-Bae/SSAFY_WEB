@@ -22,6 +22,8 @@ const quiz = ref('')
 const ans = ref('')
 const create_quiz = function(){
     emit('createQuiz',{quiz: quiz.value, answer: ans.value})
+    quiz.value=''
+    ans.value=''
 }
 
 
